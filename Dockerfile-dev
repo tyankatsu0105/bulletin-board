@@ -1,0 +1,16 @@
+FROM ruby:3.1.2-alpine
+
+RUN apk add --no-cache \
+  build-base \
+  postgresql-dev \
+  tzdata
+
+WORKDIR /server
+COPY /server/Gemfile /server/Gemfile.lock ./
+RUN bundle install --jobs=4 --retry=3
+COPY /server .
+
+EXPOSE 3000
+
+CMD ["ls", "-a"]
+# CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
