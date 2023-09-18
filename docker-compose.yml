@@ -1,18 +1,5 @@
 version: "3"
 services:
-  server:
-    tty: true
-    build:
-      context: .
-      dockerfile: ./Dockerfile-dev
-    ports:
-      - 3000:3000
-    depends_on:
-      - db
-
-    volumes:
-      - .:/server
-
   db:
     image: postgres:14-alpine
     ports:
@@ -24,6 +11,18 @@ services:
     volumes:
       - ./server/db/init:/docker-entrypoint-initdb.d
       - ./server/db/data:/var/lib/postgresql/data
+
+  server:
+    depends_on:
+      - db
+    tty: true
+    build:
+      context: .
+      dockerfile: ./Dockerfile-dev
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/server
 
   adminer:
     depends_on:

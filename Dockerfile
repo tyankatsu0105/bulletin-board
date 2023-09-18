@@ -3,7 +3,6 @@
 ###############################
 FROM ruby:3.1.2 as builder
 # -----------------------
-WORKDIR /server
 COPY /server/Gemfile /server/Gemfile.lock ./
 RUN bundle install --jobs=4 --retry=3
 COPY /server .
@@ -18,7 +17,6 @@ FROM alpine:latest
 RUN apk add --no-cache \
   postgresql-client \
   tzdata
-WORKDIR /server
 COPY --from=builder /server .
 EXPOSE 3000
 
