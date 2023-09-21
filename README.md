@@ -7,3 +7,7 @@
 ## Development
 
 .env.example を参考に、.env を作成してください。
+
+```bash
+brew install libyaml
+```

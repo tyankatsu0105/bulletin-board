@@ -3,9 +3,10 @@ FROM ruby:3.1.2-alpine
 RUN apk add --no-cache \
   build-base \
   postgresql-dev \
-  tzdata
+  tzdata \
+  gcompat
 
-COPY /server/Gemfile /server/Gemfile.lock ./
+COPY /server/Gemfile ./
 RUN bundle install --jobs=4 --retry=3
 COPY /server .
 

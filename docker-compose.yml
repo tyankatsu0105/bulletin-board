@@ -1,6 +1,7 @@
 version: "3"
 services:
   db:
+    container_name: db
     image: postgres:14-alpine
     ports:
       - 5432:5432
@@ -9,25 +10,30 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
     volumes:
-      - ./server/db/init:/docker-entrypoint-initdb.d
-      - ./server/db/data:/var/lib/postgresql/data
+      - pg-data:/var/lib/postgresql/data
 
   server:
+    container_name: server
     depends_on:
       - db
+    stdin_open: true
     tty: true
+    restart: always
     build:
       context: .
       dockerfile: ./Dockerfile-dev
     ports:
       - 3000:3000
-    volumes:
-      - .:/server
+    # volumes:
+    #   - ./server:/server
 
   adminer:
+    container_name: adminer
     depends_on:
       - db
     image: adminer:4
     restart: always
     ports:
       - 8080:8080
+volumes:
+  pg-data:

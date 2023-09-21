@@ -16,7 +16,8 @@ FROM alpine:latest
 
 RUN apk add --no-cache \
   postgresql-client \
-  tzdata
+  tzdata \
+  gcompat
 COPY --from=builder /server .
 EXPOSE 3000
 

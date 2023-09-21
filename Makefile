@@ -1,12 +1,12 @@
 up:
-	docker compose up -d
+	docker compose up
 down:
 	docker compose down
 
 build:
 	docker compose build
-reinit:
-	make down
-	rm -r db/data
-	make build
-	make up
+# reinit:
+# 	make down
+# 	rm -r server/db/data
+# 	make build
+# 	make up
