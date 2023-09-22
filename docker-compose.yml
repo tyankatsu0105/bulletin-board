@@ -24,8 +24,6 @@ services:
       dockerfile: ./Dockerfile-dev
     ports:
       - 3000:3000
-    # volumes:
-    #   - ./server:/server
 
   adminer:
     container_name: adminer
@@ -35,5 +33,6 @@ services:
     restart: always
     ports:
       - 8080:8080
+
 volumes:
   pg-data:
