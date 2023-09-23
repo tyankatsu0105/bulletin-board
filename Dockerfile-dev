@@ -6,9 +6,10 @@ RUN apk add --no-cache \
   tzdata \
   gcompat
 
-COPY /server/Gemfile ./
-RUN bundle install --jobs=4 --retry=3
+# COPY /server/Gemfile ./
+# COPY /server/Gemfile.lock ./
 COPY /server .
+RUN bundle install --jobs=4 --retry=3
 
 EXPOSE 3000
 
