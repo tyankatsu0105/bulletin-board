@@ -24,6 +24,8 @@ services:
       dockerfile: ./Dockerfile-dev
     ports:
       - 3000:3000
+    volumes:
+      - ./server:/bulletin-board
 
   adminer:
     container_name: adminer
