@@ -14,3 +14,9 @@ createdb:
 
 shell:
 	docker compose exec server sh
+
+db-migrate:
+	docker compose run server rails db:migrate
+
+rails-console:
+	docker compose run server rails console
