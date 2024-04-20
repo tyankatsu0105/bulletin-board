@@ -1,22 +1,22 @@
-setup-bundler:
-	bundle config set path 'vendor/bundle'
-
 build:
-	docker compose build
+	cd server && docker compose build
+
+setup-bundler:
+	cd server && bundle config set path 'vendor/bundle'
 
 up:
-	docker compose up -d
+	cd server && docker compose up -d
 down:
-	docker compose down
+	cd server && docker compose down
 
 createdb:
-	docker compose run server rails db:create
+	cd server && docker compose run server rails db:create
 
 shell:
-	docker compose exec server sh
+	cd server && docker compose exec server sh
 
 db-migrate:
-	docker compose run server rails db:migrate
+	cd server && docker compose run server rails db:migrate
 
 rails-console:
-	docker compose run server rails console
+	cd server && docker compose run server rails console

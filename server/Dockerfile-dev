@@ -1,6 +1,7 @@
 FROM ruby:3.1.2-alpine
 
 RUN apk add --no-cache \
+  git \
   build-base \
   postgresql-dev \
   tzdata \
@@ -8,9 +9,7 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-# COPY /server/Gemfile ./
-# COPY /server/Gemfile.lock ./
-COPY /server .
+COPY / .
 RUN bundle install --jobs=4 --retry=3
 
 EXPOSE 3000

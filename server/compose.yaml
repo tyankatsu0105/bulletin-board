@@ -1,8 +1,7 @@
-version: "3"
 services:
   db:
     container_name: db
-    image: postgres:14-alpine
+    image: postgres:16-alpine
     ports:
       - 5432:5432
     restart: always
@@ -25,7 +24,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./server:/app
+      - .:/app
 
   adminer:
     container_name: adminer

@@ -1,1 +1,8 @@
-.env
+*/.bundle
+*/.env
+
+*/tmp
+*/log
+*/storage
+*/public/assets
+*/config/master.key
