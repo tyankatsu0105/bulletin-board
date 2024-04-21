@@ -15,8 +15,10 @@ createdb:
 shell:
 	cd server && docker compose exec server sh
 
-db-migrate:
-	cd server && docker compose run server rails db:migrate
+migrate:
+	cd server && docker compose exec server rails db:migrate
+rollback:
+	cd server && docker compose exec server rails db:rollback
 
 rails-console:
-	cd server && docker compose run server rails console
+	cd server && docker compose exec server rails console
