@@ -1,8 +1,9 @@
-build:
-	cd server && docker compose build
-
 setup-bundler:
 	cd server && bundle config set path 'vendor/bundle'
+build:
+	cd server && docker compose build && bundle update --bundler
+install:
+	cd server && docker compose exec server bundle install
 
 up:
 	cd server && docker compose up -d
@@ -22,3 +23,6 @@ rollback:
 
 rails-console:
 	cd server && docker compose exec server rails console
+
+format:
+	cd server && docker compose exec server rubocop --auto-correct-all
