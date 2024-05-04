@@ -27,7 +27,6 @@ gem 'bootsnap', require: false
 group :development, :test do
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
   gem 'rubocop', require: false
-  gem 'ruby-lsp'
 end
 
 group :development do

@@ -1,0 +1,16 @@
+{
+  "name": "App with Database",
+  "dockerComposeFile": "../server/compose.yaml",
+  "service": "server",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "rubyLsp.rubyVersionManager": {
+          "identifier": "rbenv"
+        }
+      },
+      "extensions": ["Shopify.ruby-lsp", "redhat.vscode-yaml"]
+    }
+  }
+}

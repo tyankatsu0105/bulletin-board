@@ -1,7 +1,7 @@
 setup-bundler:
-	cd server && bundle config set path 'vendor/bundle'
+	cd server && bundle config set --local path 'vendor/bundle'
 build:
-	cd server && docker compose build && bundle update --bundler
+	cd server && docker compose build
 install:
 	cd server && docker compose exec server bundle install
 
@@ -26,3 +26,6 @@ rails-console:
 
 format:
 	cd server && docker compose exec server rubocop --auto-correct-all
+
+routes:
+	cd server && docker compose exec server rails routes

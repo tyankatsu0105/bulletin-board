@@ -25,6 +25,8 @@ services:
       - 3000:3000
     volumes:
       - .:/app
+      - ../.git:/app/.git
+      - ../.gitignore:/app/.gitignore
 
   adminer:
     container_name: adminer
