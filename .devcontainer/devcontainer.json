@@ -1,11 +1,12 @@
 {
   "name": "App with Database",
-  "dockerComposeFile": "../server/compose.yaml",
+  "dockerComposeFile": "../compose.yaml",
   "service": "server",
-  "workspaceFolder": "/app",
+  "workspaceFolder": "/workspace/server",
   "customizations": {
     "vscode": {
       "settings": {
+        "git.openRepositoryInParentFolders": "always",
         "rubyLsp.rubyVersionManager": {
           "identifier": "rbenv"
         }

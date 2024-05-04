@@ -19,13 +19,14 @@ services:
     tty: true
     restart: always
     build:
-      context: .
+      context: ./server
       dockerfile: ./Dockerfile-dev
     ports:
       - 3000:3000
     volumes:
-      - .:/app
-      - ../.git:/app/.git
+      - .:/workspace
+      - ~/.gitconfig.local:/root/.gitconfig.local
+    working_dir: /workspace/server
 
   adminer:
     container_name: adminer

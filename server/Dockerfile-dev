@@ -2,6 +2,7 @@ FROM ruby:3.1.2-alpine
 
 RUN apk add --no-cache \
   git \
+  gnupg \
   build-base \
   postgresql-client \
   libpq-dev \
