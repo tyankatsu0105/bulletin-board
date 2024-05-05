@@ -3,6 +3,9 @@
   "dockerComposeFile": "../compose.yaml",
   "service": "server",
   "workspaceFolder": "/workspace/server",
+  "remoteEnv": {
+    "BUNDLE_APP_CONFIG": null
+  },
   "customizations": {
     "vscode": {
       "settings": {
@@ -11,7 +14,7 @@
           "identifier": "rbenv"
         }
       },
-      "extensions": ["Shopify.ruby-lsp", "redhat.vscode-yaml"]
+      "extensions": ["Shopify.ruby-extensions-pack", "redhat.vscode-yaml"]
     }
   }
 }
