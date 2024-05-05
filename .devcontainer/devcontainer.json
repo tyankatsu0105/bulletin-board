@@ -14,7 +14,11 @@
           "identifier": "rbenv"
         }
       },
-      "extensions": ["Shopify.ruby-extensions-pack", "redhat.vscode-yaml"]
+      "extensions": [
+        "Shopify.ruby-extensions-pack",
+        "redhat.vscode-yaml",
+        "malt03.rails-rspec-file-toggle"
+      ]
     }
   }
 }

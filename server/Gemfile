@@ -26,7 +26,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 6.1.0'
   gem 'rubocop', require: false
 end
 
