@@ -1,11 +1,31 @@
 # frozen_string_literal: true
 
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+def create_posts!
+  create_item_count = 10
+  last_item_id = Post.last&.id || 0
+
+  create_item_count.times do |i|
+    Post.create!(
+      id: last_item_id + i + 1,
+      title: Faker::Food.allergen,
+      content: Faker::Food.description,
+      category: Post.categories.keys.sample
+    )
+  end
+end
+
+def create_comments!
+  create_item_count = 10
+  last_item_id = Comment.last&.id || 0
+
+  create_item_count.times do |i|
+    Comment.create!(
+      id: last_item_id + i + 1,
+      post: Post.order('RANDOM()').limit(1)[0],
+      content: Faker::Food.description
+    )
+  end
+end
+
+create_posts!
+create_comments!
